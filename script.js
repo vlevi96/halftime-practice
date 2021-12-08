@@ -51,14 +51,10 @@ function filterTheCat(creatures) {
     const result=creatures.filter(creature => {
         if(creature.type==="cat")
         {
-            //const newCreature=JSON.parse(JSON.stringify(creature));
-            //newCreature["note"]="This is an amazing cat";
-            //console.log(newCreature);
+            creature.note="This is an amazing cat";
             return creature;
         }
     });
-    //console.log(result);
-    result[0].note="This is my amazing cat";
     return result;
 }
 console.log(filterTheCat(array3));
