@@ -1,24 +1,24 @@
-const array1=["alma","körte","banán"];
-const array2=["barack","szilva","szölő"];
+const array1 = ["alma", "körte", "banán"];
+const array2 = ["barack", "szilva", "szölő"];
 
-function addValueToEndOfArray(arr,val) {
+function addValueToEndOfArray(arr, val) {
     arr.push(val);
     return arr;
 }
 //console.log(addValueToEndOfArray(array2,"Dió"));
 //console.log(array2);
 
-function addValueToEndOfNewArray(arr,val) {
+function addValueToEndOfNewArray(arr, val) {
     //const newArray = [...arr];
     //newArray.push(val);
     //const newArray={...arr};//wtf
     //return newArray;
-    return [...arr,val];
+    return [...arr, val];
 }
 //console.log(addValueToEndOfNewArray(array2,"Dió"));
 //console.log(array2);
 
-function addNewArray(arr1,arr2) {
+function addNewArray(arr1, arr2) {
     /*for (const item of arr2) {
         arr1.push(item);
     }
@@ -26,17 +26,17 @@ function addNewArray(arr1,arr2) {
     //return [...arr1,...arr2];
     return arr1.concat(arr2);
 }
-console.log(addNewArray(array1,array2));
-console.log(array1);
+//console.log(addNewArray(array1,array2));
+//console.log(array1);
 
-const array3=[
+const array3 = [
     {
-        name:"Garfield",
-        type:"cat"
+        name: "Garfield",
+        type: "cat"
     },
     {
-        name:"Garfield2",
-        type:"dog"
+        name: "Garfield2",
+        type: "dog"
     }
 ];
 function filterTheCat(creatures) {
@@ -48,18 +48,25 @@ function filterTheCat(creatures) {
         }
     }
     return result;*/
-    const result=creatures.filter(creature => {
+    /*const result=creatures.filter(creature => {
         if(creature.type==="cat")
         {
             //const newCreature=JSON.parse(JSON.stringify(creature));
             //newCreature["note"]="This is an amazing cat";
             //console.log(newCreature);
-            return creature;
+            return true;
         }
-    });
-    //console.log(result);
-    result[0].note="This is my amazing cat";
-    return result;
+    });*/
+
+    /* const result = creatures.map(creature => {
+         if (creature.type==="cat")
+         {
+             return {...creature,note:"This is an amazing cat"};
+         }
+     }).filter(creature => creature);
+     return result;
+ */
+    return creatures.map(creature => creature.type==="cat"?{ ...creature, note: "This is an amazing cat" }:undefined).filter(creature => creature);
 }
 console.log(filterTheCat(array3));
 console.log(array3);
